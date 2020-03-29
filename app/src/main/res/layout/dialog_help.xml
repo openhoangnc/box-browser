@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:layout_alignParentBottom="true"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:animateLayoutChanges="true"
+    android:background="?android:attr/colorBackground"
     android:orientation="vertical"
     android:padding="16dp"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="?android:attr/colorBackground"
-    tools:ignore="ContentDescription"
-    android:animateLayoutChanges="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:ignore="ContentDescription">
 
     <TextView
         android:id="@+id/dialogHelp_title"
@@ -20,7 +19,7 @@
         android:layout_marginBottom="@dimen/layout_margin_16dp"
         android:text="@string/dialogHelp_tipTitle"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/dialogHelp_tipText"/>
+            android:text="@string/dialogHelp_tipText" />
 
     </ScrollView>
 
@@ -77,10 +76,10 @@
 
             <View
                 android:id="@+id/dialogHelp_overviewView"
-                android:visibility="invisible"
                 android:layout_width="42dp"
                 android:layout_height="2dp"
-                android:background="?android:attr/colorAccent" />
+                android:background="?android:attr/colorAccent"
+                android:visibility="invisible" />
 
             <ImageButton
                 android:id="@+id/dialogHelp_overview"

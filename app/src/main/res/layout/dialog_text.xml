@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="?android:attr/colorBackground"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:ignore="ContentDescription">
 
     <TextView
@@ -25,19 +24,19 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp"
+            android:orientation="vertical"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp" >
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
             <TextView
                 android:id="@+id/dialog_text"
-                android:autoLink="web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="false"/>
+                android:autoLink="web"
+                android:includeFontPadding="false" />
 
         </LinearLayout>
 

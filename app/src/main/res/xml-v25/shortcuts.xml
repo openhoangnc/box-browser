@@ -1,44 +1,44 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
 
     <shortcut
-        android:shortcutId="sc_startPage"
         android:enabled="true"
         android:icon="@drawable/qc_start"
-        android:shortcutShortLabel="@string/album_title_files"
+        android:shortcutDisabledMessage="@string/album_title_home"
+        android:shortcutId="sc_startPage"
         android:shortcutLongLabel="@string/album_title_home"
-        android:shortcutDisabledMessage="@string/album_title_home">
+        android:shortcutShortLabel="@string/album_title_files">
         <intent
             android:action="sc_startPage"
-            android:targetPackage="de.baumann.browser"
-            android:targetClass="de.baumann.browser.activity.BrowserActivity" />
+            android:targetClass="openhoangnc.browser.activity.BrowserActivity"
+            android:targetPackage="openhoangnc.browser" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
     <shortcut
-        android:shortcutId="sc_bookmark"
         android:enabled="true"
         android:icon="@drawable/qc_bookmarks"
-        android:shortcutShortLabel="@string/album_title_bookmarks"
+        android:shortcutDisabledMessage="@string/album_title_bookmarks"
+        android:shortcutId="sc_bookmark"
         android:shortcutLongLabel="@string/album_title_bookmarks"
-        android:shortcutDisabledMessage="@string/album_title_bookmarks">
+        android:shortcutShortLabel="@string/album_title_bookmarks">
         <intent
             android:action="sc_bookmark"
-            android:targetPackage="de.baumann.browser"
-            android:targetClass="de.baumann.browser.activity.BrowserActivity" />
+            android:targetClass="openhoangnc.browser.activity.BrowserActivity"
+            android:targetPackage="openhoangnc.browser" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
     <shortcut
-        android:shortcutId="sc_history"
         android:enabled="true"
         android:icon="@drawable/qc_history"
-        android:shortcutShortLabel="@string/album_title_history"
+        android:shortcutDisabledMessage="@string/album_title_history"
+        android:shortcutId="sc_history"
         android:shortcutLongLabel="@string/album_title_history"
-        android:shortcutDisabledMessage="@string/album_title_history">
+        android:shortcutShortLabel="@string/album_title_history">
         <intent
             android:action="sc_history"
-            android:targetPackage="de.baumann.browser"
-            android:targetClass="de.baumann.browser.activity.BrowserActivity" />
+            android:targetClass="openhoangnc.browser.activity.BrowserActivity"
+            android:targetPackage="openhoangnc.browser" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 

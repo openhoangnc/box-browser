@@ -1,19 +1,19 @@
-# FOSS Browser FAQs
+# BOX Browser FAQs
 
-This is a compilation of Frequently Asked Questions for FOSS Browser. This document will aid prospective and existing end-users of the software as a self-service guide in cases where the developer can't be reached. This document is subject to change and modifications at any time. Thus, it will be updated from time to time consequently to suit any new changes to the software as new developments would be implemented. These new developments might cause a discrepancy with this current document.
-
----
-
-
-### What is FOSS browser? 
-
-FOSS Browser is fully free/libre (as in freedom) Android app. The source code is public. The app also does not need any unnecessary permissions. It's a simple Android browser based on webview. The intention is to provide a simple and lightweight but a powerful browser with a nice looking user interface.
+This is a compilation of Frequently Asked Questions for BOX Browser. This document will aid prospective and existing end-users of the software as a self-service guide in cases where the developer can't be reached. This document is subject to change and modifications at any time. Thus, it will be updated from time to time consequently to suit any new changes to the software as new developments would be implemented. These new developments might cause a discrepancy with this current document.
 
 ---
 
-### What are the features of FOSS browser?
 
-FOSS browser is laced with a variety of rich features that makes it an amazing and outstanding browser. Some of FOSS Browser features are these;
+### What is BOX Browser?
+
+BOX Browser is fully free/libre (as in freedom) Android app. The source code is public. The app also does not need any unnecessary permissions. It's a simple Android browser based on webview. The intention is to provide a simple and lightweight but a powerful browser with a nice looking user interface.
+
+---
+
+### What are the features of BOX Browser?
+
+BOX Browser is laced with a variety of rich features that makes it an amazing and outstanding browser. Some of BOX Browser features are these;
 
 - Full material design
 - AdBlocker
@@ -24,7 +24,7 @@ FOSS browser is laced with a variety of rich features that makes it an amazing a
 - Screenshots of the whole website
 - Share/save a webpage as PDF
 
-Aside from the features above, FOSS Browser is designed with all the basic features of a browser. 
+Aside from the features above, BOX Browser is designed with all the basic features of a browser.
 
 ---
 
@@ -45,7 +45,7 @@ To customize the app's UI;
 
 ### How do I bookmark a webpage, or add it to home?
 
-Bookmarking a webpage on FOSS Browser is quite simple. First;
+Bookmarking a webpage on BOX Browser is quite simple. First;
 
 - Be on the webpage you wish to add to bookmarks or homepage. 
 - Access the options menu by clicking the 3 dots beside the navigation bar
@@ -75,17 +75,17 @@ To access your saved bookmarks;
 ---
 
 
-### Can I browse securely? Does FOSS browser support encrypted connections?
+### Can I browse securely? Does BOX Browser support encrypted connections?
 
 Yes. In all recent versions, information sent between your phone and the websites you visit is encrypted if the site has correctly implemented [HTTPS protocol](http://en.wikipedia.org/wiki/HTTP_Secure).
 
 ---
 
-### What about security? How does FOSS browser protect my privacy?
+### What about security? How does BOX Browser protect my privacy?
 
-Your privacy is somewhat secured when you use FOSS Browser. The term somewhat is used because; no method of transmission over the internet or electronic storage is 100% secure, therefore the developer doesn't guarantee its absolute security.
+Your privacy is somewhat secured when you use BOX Browser. The term somewhat is used because; no method of transmission over the internet or electronic storage is 100% secure, therefore the developer doesn't guarantee its absolute security.
 
-You can read FOSS Browser [Privacy Policy](https://github.com/scoute-dich/browser/blob/master/PRIVACY.md)
+You can read BOX Browser [Privacy Policy](https://github.com/scoute-dich/browser/blob/master/PRIVACY.md)
 
 ---
 
@@ -99,7 +99,7 @@ No, you cannot save a page for offline use. But, if you screen a page, it can ac
 
 ### Can I download media files?
 
-Yes, you can download any file on FOSS Browser. But, the browser would use your device's downloader. 
+Yes, you can download any file on BOX Browser. But, the browser would use your device's downloader.
 
 ---
 
@@ -115,7 +115,7 @@ The reasons for slow Internet speed may be:
 
 ### My data gets exhausted very fast. Does the browser have a data saving option?
 
-FOSS browser does have data saving. Although indirectly. One of the ways to save data while surfing the internet is to disable images from loading. Images on a website consume quite a reasonable amount of data. If you are surfing on a web page where images aren't of importance to you, you can disable images from loading and consequently save your data. Disabling this option also gives you a faster browsing experience. 
+BOX Browser does have data saving. Although indirectly. One of the ways to save data while surfing the internet is to disable images from loading. Images on a website consume quite a reasonable amount of data. If you are surfing on a web page where images aren't of importance to you, you can disable images from loading and consequently save your data. Disabling this option also gives you a faster browsing experience.
 
 Read how to get into the app's settings [here](https://hackmd.io/t0WLk9GXRziQENXkPqJf5w?both#Can-I-customise-the-browser%E2%80%99s-UI). Read up to step 5. 
 
@@ -125,7 +125,7 @@ Read how to get into the app's settings [here](https://hackmd.io/t0WLk9GXRziQENX
 
 ---
 
-### I found a bug in FOSS browser. How can I report it?
+### I found a bug in BOX Browser. How can I report it?
 
 Firstly, apologies for any inconvenience this issue may have caused you. The developer is working to ensure that the app is bug-free. You can help speed up that process by making a report to when you encounter an error, or when the app crashes. 
 

@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
-        applicationId "de.baumann.browser"
-        minSdkVersion 21
+        applicationId 'openhoangnc.browser'
+        minSdkVersion 28
         targetSdkVersion 29
         versionCode 101
         versionName "6.9"
@@ -24,6 +26,10 @@ android {
         checkReleaseBuilds false
         disable 'MissingTranslation'
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
     return void
 }
 
@@ -35,4 +41,9 @@ dependencies {
     implementation 'com.mobapphome.library:mah-encryptor-lib:1.0.1'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

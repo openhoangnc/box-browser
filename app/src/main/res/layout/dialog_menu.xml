@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="8dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="?android:attr/colorBackground"
-    tools:ignore="ContentDescription" >
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:ignore="ContentDescription">
 
     <TextView
         android:id="@+id/dialog_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:includeFontPadding="false"
-        android:padding="8dp"
         android:ellipsize="end"
         android:gravity="center_vertical|center_horizontal"
+        android:includeFontPadding="false"
         android:maxLines="1"
+        android:padding="8dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
     <View
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_margin="8dp"
         android:background="?android:attr/colorButtonNormal" />
 
     <ScrollView
@@ -42,11 +41,11 @@
                 android:id="@+id/menu_tabPreview"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -58,13 +57,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/main_menu_tabPreview"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="?android:attr/textColorPrimary"/>
+                    android:textColor="?android:attr/textColorPrimary" />
 
             </LinearLayout>
 
@@ -72,11 +71,11 @@
                 android:id="@+id/menu_newTabOpen"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -88,9 +87,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/main_menu_new_tabOpen"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -102,11 +101,11 @@
                 android:id="@+id/menu_openFav"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -118,9 +117,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_openFav"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -133,11 +132,11 @@
                 android:id="@+id/menu_closeTab"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -149,9 +148,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_closeTab"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -163,11 +162,11 @@
                 android:id="@+id/menu_quit"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -179,9 +178,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_quit"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -194,11 +193,11 @@
                 android:id="@+id/menu_shareScreenshot"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -211,9 +210,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_share_screenshot"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -222,15 +221,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/menu_sharePDF"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -240,13 +239,13 @@
                     android:src="@drawable/icon_document" />
 
                 <TextView
-                    android:text="@string/menu_share_pdf"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
+                    android:text="@string/menu_share_pdf"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="?android:attr/textColorPrimary" />
 
@@ -256,11 +255,11 @@
                 android:id="@+id/menu_shareLink"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -273,9 +272,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_share_link"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -287,11 +286,11 @@
                 android:id="@+id/menu_shareClipboard"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -304,9 +303,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_shareClipboard"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -319,11 +318,11 @@
                 android:id="@+id/menu_openWith"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -336,9 +335,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_open_with"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -350,11 +349,11 @@
                 android:id="@+id/menu_saveScreenshot"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -367,9 +366,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_save_screenshot"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -379,15 +378,15 @@
 
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/contextLink_saveAs"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
+                android:minHeight="46dp"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -397,13 +396,13 @@
                     android:src="@drawable/icon_document" />
 
                 <TextView
-                    android:text="@string/menu_save_pdf"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
+                    android:text="@string/menu_save_pdf"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="?android:attr/textColorPrimary" />
 
@@ -414,11 +413,11 @@
                 android:id="@+id/menu_saveStart"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -431,9 +430,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_save_home"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -445,11 +444,11 @@
                 android:id="@+id/menu_saveBookmark"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -462,9 +461,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_save_bookmark"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -476,11 +475,11 @@
                 android:id="@+id/menu_sc"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -493,9 +492,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_sc"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -507,11 +506,11 @@
                 android:id="@+id/menu_searchSite"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -524,9 +523,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_other_searchSite"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -538,11 +537,11 @@
                 android:id="@+id/menu_fav"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -555,9 +554,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_fav"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -569,11 +568,11 @@
                 android:id="@+id/menu_fileManager"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -586,9 +585,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_other_fileManager"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -601,11 +600,11 @@
                 android:id="@+id/menu_download"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -618,9 +617,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/menu_download"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -632,11 +631,11 @@
                 android:id="@+id/menu_settings"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
                 android:background="?attr/selectableItemBackground"
+                android:minHeight="46dp"
                 android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:visibility="gone">
 
                 <ImageView
@@ -649,9 +648,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:includeFontPadding="false"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:text="@string/setting_label"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -662,50 +661,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:minHeight="46dp"
-                android:orientation="horizontal"
                 android:layout_marginTop="12dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:minHeight="46dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:orientation="vertical"
                     android:layout_width="42dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
 
                     <View
-                        android:visibility="visible"
                         android:id="@+id/floatButton_tabView"
                         android:layout_width="42dp"
                         android:layout_height="2dp"
-                        android:background="?android:attr/colorAccent" />
+                        android:background="?android:attr/colorAccent"
+                        android:visibility="visible" />
 
                     <ImageButton
                         android:id="@+id/floatButton_tab"
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:layout_gravity="center_vertical|center_horizontal"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
                         android:background="?attr/actionBarItemBackground"
                         android:src="@drawable/icon_tab_plus" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:orientation="vertical"
                     android:layout_width="42dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
 
                     <View
-                        android:visibility="invisible"
                         android:id="@+id/floatButton_shareView"
                         android:layout_width="42dp"
                         android:layout_height="2dp"
                         android:background="?android:attr/colorAccent"
+                        android:visibility="invisible"
                         tools:ignore="TooManyViews" />
 
                     <ImageButton
@@ -713,8 +712,8 @@
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:layout_gravity="center_vertical|center_horizontal"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
                         android:background="?attr/actionBarItemBackground"
                         android:src="@drawable/icon_menu_share" />
 
@@ -722,44 +721,44 @@
 
 
                 <LinearLayout
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:orientation="vertical"
                     android:layout_width="42dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
 
                     <View
-                        android:visibility="invisible"
                         android:id="@+id/floatButton_saveView"
                         android:layout_width="42dp"
                         android:layout_height="2dp"
-                        android:background="?android:attr/colorAccent" />
+                        android:background="?android:attr/colorAccent"
+                        android:visibility="invisible" />
 
                     <ImageButton
                         android:id="@+id/floatButton_save"
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:layout_gravity="center_vertical|center_horizontal"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
                         android:background="?attr/actionBarItemBackground"
                         android:src="@drawable/icon_menu_save" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:orientation="vertical"
                     android:layout_width="42dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
 
                     <View
-                        android:visibility="invisible"
                         android:id="@+id/floatButton_moreView"
                         android:layout_width="42dp"
                         android:layout_height="2dp"
                         android:background="?android:attr/colorAccent"
+                        android:visibility="invisible"
                         tools:ignore="TooManyViews" />
 
                     <ImageButton
@@ -767,8 +766,8 @@
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:layout_gravity="center_vertical|center_horizontal"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
                         android:background="?attr/actionBarItemBackground"
                         android:src="@drawable/icon_dots" />
 
@@ -781,6 +780,4 @@
     </ScrollView>
 
 
-
-    
 </LinearLayout>

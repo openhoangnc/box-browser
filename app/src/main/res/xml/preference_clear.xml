@@ -2,37 +2,43 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <CheckBoxPreference android:key="@string/sp_clear_cache"
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:icon="@drawable/ic_save_data"
-        android:defaultValue="false"
-        android:title="@string/clear_title_cache"/>
+        android:key="@string/sp_clear_cache"
+        android:title="@string/clear_title_cache" />
 
-    <CheckBoxPreference android:key="@string/sp_clear_history"
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:icon="@drawable/icon_history"
-        android:defaultValue="false"
-        android:title="@string/clear_title_history"/>
+        android:key="@string/sp_clear_history"
+        android:title="@string/clear_title_history" />
 
-    <CheckBoxPreference android:key="sp_clearIndexedDB"
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:icon="@drawable/icon_export"
-        android:defaultValue="false"
-        android:title="@string/clear_title_indexedDB"/>
+        android:key="sp_clearIndexedDB"
+        android:title="@string/clear_title_indexedDB" />
 
-    <CheckBoxPreference android:key="@string/sp_clear_cookie"
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:icon="@drawable/icon_cookie"
-        android:defaultValue="false"
-        android:title="@string/clear_title_cookie"
-        android:summary="@string/setting_summary_cookie_delete"/>
+        android:key="@string/sp_clear_cookie"
+        android:summary="@string/setting_summary_cookie_delete"
+        android:title="@string/clear_title_cookie" />
 
-    <CheckBoxPreference android:key="@string/sp_clear_quit"
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:icon="@drawable/icon_exit"
-        android:defaultValue="false"
-        android:title="@string/clear_title_quit"
-        android:summary="@string/clear_summary_quit"/>
+        android:key="@string/sp_clear_quit"
+        android:summary="@string/clear_summary_quit"
+        android:title="@string/clear_title_quit" />
 
-    <Preference android:key="sp_deleteDatabase"
+    <Preference
         android:icon="@drawable/icon_delete"
-        android:title="@string/clear_title_deleteDatabase"
-        android:summary="@string/clear_summary_deleteDatabase"/>
+        android:key="sp_deleteDatabase"
+        android:summary="@string/clear_summary_deleteDatabase"
+        android:title="@string/clear_title_deleteDatabase" />
 
 
 </PreferenceScreen>

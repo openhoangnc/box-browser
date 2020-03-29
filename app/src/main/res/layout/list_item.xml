@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/layout_margin_12dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="@dimen/layout_margin_12dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
     <ImageButton
-        android:visibility="gone"
         android:id="@+id/ib_icon"
-        android:layout_centerInParent="true"
-        android:layout_alignParentEnd="true"
         android:layout_width="42dp"
         android:layout_height="42dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:background="?attr/actionBarItemBackground"
         android:contentDescription="@null"
         android:foregroundGravity="center"
-        android:src="@drawable/icon_earth" />
+        android:src="@drawable/icon_earth"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/record_item_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
         android:includeFontPadding="false"
-        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
         android:maxLines="1"
-        android:ellipsize="end"/>
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary" />
 
-    <TextView android:id="@+id/record_item_title"
+    <TextView
+        android:id="@+id/record_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@id/record_item_time"
+        android:layout_centerInParent="true"
         android:layout_marginEnd="@dimen/layout_margin_8dp"
+        android:layout_toStartOf="@id/record_item_time"
+        android:ellipsize="end"
         android:includeFontPadding="false"
-        android:textAppearance="?android:attr/textAppearanceListItem"
         android:maxLines="1"
-        android:ellipsize="end"/>
+        android:textAppearance="?android:attr/textAppearanceListItem" />
 
 </RelativeLayout>

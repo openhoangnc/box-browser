@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/layout_margin_56dp"
+    android:layout_alignParentBottom="true"
+    android:background="?android:attr/colorBackground"
     android:minHeight="@dimen/layout_margin_56dp"
     android:orientation="vertical"
-    android:background="?android:attr/colorBackground"
-    android:layout_alignParentBottom="true"
     tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/dialog_text"
-        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:includeFontPadding="false"
-        android:layout_gravity="center_vertical" />
+        android:padding="16dp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -29,23 +28,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:includeFontPadding="false"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:background="?attr/selectableItemBackground"
-            android:textColor="?android:attr/colorAccent"
-            android:text="@string/app_ok"/>
+            android:includeFontPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/app_ok"
+            android:textColor="?android:attr/colorAccent" />
 
-        <Button android:id="@+id/action_cancel"
+        <Button
+            android:id="@+id/action_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/action_ok"
-            android:includeFontPadding="false"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:background="?attr/selectableItemBackground"
-            android:textColor="?android:attr/colorAccent"
-            android:text="@string/app_cancel"/>
+            android:includeFontPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/app_cancel"
+            android:textColor="?android:attr/colorAccent" />
 
     </RelativeLayout>
 

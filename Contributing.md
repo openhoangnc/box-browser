@@ -1,13 +1,13 @@
-FOSS browser contributors guide.
+BOX Browser contributors guide.
 
 
-# FOSS Browser. Contributor's guidelines
+# BOX Browser. Contributor's guidelines
 
 
 # How to contribute
 
-Great! FOSS Browser continues to improve from the contributions of its users. This could include code contributions, feature requests, and bug fixes for [FOSS Browser](https://github.com/scoute-dich/browser). 
-Thank you for your interest in contributing to FOSS Browser. I appreciate all help with finding and fixing bugs, making performance improvements, and other tasks. Every contribution is helpful and I thank you for your effort. To ensure the process of contributing is as smooth as possible, here are a few guidelines for you to follow.
+Great! BOX Browser continues to improve from the contributions of its users. This could include code contributions, feature requests, and bug fixes for [BOX Browser](https://github.com/scoute-dich/browser).
+Thank you for your interest in contributing to BOX Browser. I appreciate all help with finding and fixing bugs, making performance improvements, and other tasks. Every contribution is helpful and I thank you for your effort. To ensure the process of contributing is as smooth as possible, here are a few guidelines for you to follow.
 
 - Remember to Create an Issue before submitting any major changes like a new feature or UI changes etc. Changes like the addition of new language or spelling mistakes don't require issue creation.
 ---
@@ -21,7 +21,7 @@ There's a good chance that whatever reason you might be opening an issue for mig
 
 ## Missing language support?
 
-Your language isn't supported yet? You want to translate FOSS Browser? Or make improvements to existing translations? Feel free to use [crowdin](https://crowdin.com/project/foss-browser).
+Your language isn't supported yet? You want to translate BOX Browser? Or make improvements to existing translations? Feel free to use [crowdin](https://crowdin.com/project/foss-browser).
 
 ## New ideas, enhancements and feature requests
 
@@ -43,7 +43,7 @@ When submitting a feature request, please make a single issue for each feature r
 
 ### I'm a developer (Code Contributions).
 
-Fantastic. It's very rare for us to deny pull requests. Open a ticket to let other's know what you are working on along with a description. Fork the repository which in this case is [FOSS Browser](https://github.com/scoute-dich/browser), make your desired changes, and send a pull request.
+Fantastic. It's very rare for us to deny pull requests. Open a ticket to let other's know what you are working on along with a description. Fork the repository which in this case is [BOX Browser](https://github.com/scoute-dich/browser), make your desired changes, and send a pull request.
 
 Please refrain from reformatting or rearranging the code. It makes it very hard to identify changes
 in pull requests. 
@@ -87,7 +87,7 @@ Here's a detailed content on how to [Create a pull request](https://help.github.
 
 Simply put, the way to create a Pull request is first to; 
 
-1. Fork the repository of the project which in this case is [FOSS Browser](https://github.com/scoute-dich/browser)
+1. Fork the repository of the project which in this case is [BOX Browser](https://github.com/scoute-dich/browser)
 2. Commit modifications and changes to your fork
 3. Send a [pull request](https://help.github.com/articles/creating-a-pull-request) to the original repository you forked your repository from in step 1
 
@@ -99,12 +99,12 @@ Sorry to hear about your troubles. I try to make the app free of bugs and errors
 So, if it's a new issue; please include the following:
 
  * Steps to reproduce and/or sample code to recreate the problem.
- * I'll also need to know what version of FOSS browser you're using and,
+ * I'll also need to know what version of BOX Browser you're using and,
  * The version of Android in the device in question. Sometimes the manufacturer is helpful too. Since there can be variants of Android that may affect 
    things (such as x86).
 
 Finally, please be patient. The developer has a lot of things to do. But, be assured that the bug report will receive adequate attention, and will consequently be fixed. If you are a
-developer,  you can fork FOSS Browser and fix it yourself. 
+developer,  you can fork BOX Browser and fix it yourself.
 
 
 ## Contact.
@@ -114,5 +114,5 @@ For further inquiries, you can contact the developer by opening an issue on the 
 You can also check out the developer's profile [here](https://github.com/scoute-dich).
 
 
-***Thank you for your interest in contributing to FOSS Browser. I appreciate all the help with finding and fixing bugs, making performance improvements, and other tasks. Every contribution is helpful and I thank you for your effort.***
+***Thank you for your interest in contributing to BOX Browser. I appreciate all the help with finding and fixing bugs, making performance improvements, and other tasks. Every contribution is helpful and I thank you for your effort.***
 
