@@ -14,49 +14,48 @@ import java.util.*
 
 class CompleteAdapter(private val context: Context, private val layoutResId: Int, recordList: List<Record?>?) : BaseAdapter(), Filterable {
     private inner class CompleteFilter : Filter() {
-        override fun performFiltering(prefix: CharSequence): FilterResults {
+        override fun performFiltering(prefix: CharSequence?): FilterResults {
             if (prefix == null) {
                 return FilterResults()
             }
             resultList.clear()
             for (item in originalList) {
-                if (item.title!!.contains(prefix) || item.uRL!!.contains(prefix)) {
+                if (item.title?.contains(prefix)!! || item.url?.contains(prefix)!!) {
                     if (item.title.contains(prefix)) {
                         item.index = item.title.indexOf(prefix.toString())
-                    } else if (item.uRL!!.contains(prefix)) {
-                        item.index = item.uRL.indexOf(prefix.toString())
+                    } else if (item.url?.contains(prefix)!!) {
+                        item.index = item.url.indexOf(prefix.toString())
                     }
                     resultList.add(item)
                 }
             }
-            Collections.sort(resultList) { first, second -> Integer.compare(first.index, second.index) }
+            resultList.sortWith(Comparator { first, second -> first.index.compareTo(second.index) })
             val results = FilterResults()
             results.values = resultList
             results.count = resultList.size
             return results
         }
 
-        override fun publishResults(constraint: CharSequence, results: FilterResults) {
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
             notifyDataSetChanged()
         }
     }
 
-    private inner class CompleteItem(val title: String?, val uRL: String?) {
+    private inner class CompleteItem(val title: String?, val url: String?) {
 
         var index = Int.MAX_VALUE
 
-        override fun equals(`object`: Any?): Boolean {
-            if (`object` !is CompleteItem) {
+        override fun equals(other: Any?): Boolean {
+            if (other !is CompleteItem) {
                 return false
             }
-            val item = `object`
-            return item.title == title && item.uRL == uRL
+            return other.title == title && other.url == url
         }
 
         override fun hashCode(): Int {
-            return if (title == null || uRL == null) {
+            return if (title == null || url == null) {
                 0
-            } else title.hashCode() and uRL.hashCode()
+            } else title.hashCode() and url.hashCode()
         }
 
     }
@@ -72,8 +71,9 @@ class CompleteAdapter(private val context: Context, private val layoutResId: Int
     private val filter = CompleteFilter()
     private fun dedup(recordList: List<Record?>?) {
         for (record in recordList!!) {
-            if (record!!.title != null && !record.title!!.isEmpty()
-                    && record.url != null && !record.url!!.isEmpty()) {
+            if (record?.title != null && !record.title?.isEmpty()!!
+                && record.url != null && !record.url?.isEmpty()!!
+            ) {
                 originalList.add(CompleteItem(record.title, record.url))
             }
         }
@@ -98,9 +98,9 @@ class CompleteAdapter(private val context: Context, private val layoutResId: Int
         return position.toLong()
     }
 
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var view = convertView
-        var holder: Holder
+        val holder: Holder
         if (view == null) {
             view = LayoutInflater.from(context).inflate(layoutResId, null, false)
             holder = Holder()
@@ -110,10 +110,11 @@ class CompleteAdapter(private val context: Context, private val layoutResId: Int
         } else {
             holder = view.tag as Holder
         }
+
         val item = resultList[position]
-        holder.titleView!!.text = item.title
-        holder.urlView!!.text = item.uRL
-        return view
+        holder.titleView?.text = item.title
+        holder.urlView?.text = item.url
+        return view!!
     }
 
     init {

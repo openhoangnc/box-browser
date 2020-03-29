@@ -17,25 +17,15 @@ object ViewUnit {
         view.layout(0, 0, view.measuredWidth, view.measuredHeight)
     }
 
-    fun createImage(width: Int, height: Int, color: Int): Bitmap {
-        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        val paint = Paint()
-        paint.color = color
-        paint.alpha = 50
-        canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
-        return bitmap
-    }
-
     fun capture(view: View?, width: Float, height: Float, config: Bitmap.Config?): Bitmap {
-        view!!.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        view?.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         val bitmap = Bitmap.createBitmap(width.toInt(), height.toInt(), config!!)
         bitmap.eraseColor(Color.WHITE)
         val canvas = Canvas(bitmap)
-        val left = view.left
-        val top = view.top
+        val left = view?.left
+        val top = view?.top
         val status = canvas.save()
-        canvas.translate(-left.toFloat(), -top.toFloat())
+        canvas.translate(-left?.toFloat()!!, -top?.toFloat()!!)
         val scale = width / view.width
         canvas.scale(scale, scale, left.toFloat(), top.toFloat())
         view.draw(canvas)
@@ -51,14 +41,14 @@ object ViewUnit {
     }
 
     fun getDensity(context: Context?): Float {
-        return context!!.resources.displayMetrics.density
+        return context?.resources?.displayMetrics?.density!!
     }
 
     private fun getWindowHeight(context: Context?): Int {
-        return context!!.resources.displayMetrics.heightPixels
+        return context?.resources?.displayMetrics?.heightPixels!!
     }
 
     fun getWindowWidth(context: Context?): Int {
-        return context!!.resources.displayMetrics.widthPixels
+        return context?.resources?.displayMetrics?.widthPixels!!
     }
 }

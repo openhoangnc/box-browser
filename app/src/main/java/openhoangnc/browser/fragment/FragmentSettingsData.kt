@@ -30,17 +30,17 @@ import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
-class Fragment_settings_data : PreferenceFragmentCompat() {
+class FragmentSettingsData : PreferenceFragmentCompat() {
     private var dialog: BottomSheetDialog? = null
-    override fun onCreatePreferences(savedInstanceState: Bundle, rootKey: String) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preference_data, rootKey)
-        val sd = activity!!.getExternalFilesDir(null)
+        val sd = activity?.getExternalFilesDir(null)
         val data = Environment.getDataDirectory()
-        val previewsPath_app = "//data//" + activity!!.packageName + "//"
+        val previewsPath_app = "//data//" + activity?.packageName + "//"
         val previewsPath_backup = "browser_backup//data//"
         val previewsFolder_app = File(data, previewsPath_app)
         val previewsFolder_backup = File(sd, previewsPath_backup)
-        findPreference<Preference>("data_exAdBlock")!!.setOnPreferenceClickListener {
+        findPreference<Preference>("data_exAdBlock")?.setOnPreferenceClickListener {
             val dialogView: View
             val textView: TextView
             val action_ok: Button
@@ -52,25 +52,26 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         makeBackupDir()
                         ExportWhiteListTask(activity, 0).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     makeBackupDir()
                     ExportWhiteListTask(activity, 0).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -87,23 +88,24 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         ImportWhitelistTask(activity, 0).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     ImportWhitelistTask(activity, 0).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -120,25 +122,26 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         makeBackupDir()
                         ExportWhiteListTask(activity, 2).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     makeBackupDir()
                     ExportWhiteListTask(activity, 2).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -155,23 +158,24 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         ImportWhitelistTask(activity, 2).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     ImportWhitelistTask(activity, 2).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -188,25 +192,26 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         makeBackupDir()
                         ExportWhiteListTask(activity, 1).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     makeBackupDir()
                     ExportWhiteListTask(activity, 1).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -223,23 +228,24 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
                 if (Build.VERSION.SDK_INT < 29) {
-                    val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val hasWRITE_EXTERNAL_STORAGE =
+                        activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                         HelperUnit.grantPermissionsStorage(activity)
-                        dialog!!.cancel()
+                        dialog?.cancel()
                     } else {
-                        dialog!!.cancel()
+                        dialog?.cancel()
                         ImportWhitelistTask(activity, 1).execute()
                     }
                 } else {
-                    dialog!!.cancel()
+                    dialog?.cancel()
                     ImportWhitelistTask(activity, 1).execute()
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -255,13 +261,14 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             textView.setText(R.string.toast_backup)
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
-                dialog!!.cancel()
+                dialog?.cancel()
                 try {
                     if (Build.VERSION.SDK_INT < 29) {
-                        val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        val hasWRITE_EXTERNAL_STORAGE =
+                            activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                             HelperUnit.grantPermissionsStorage(activity)
-                            dialog!!.cancel()
+                            dialog?.cancel()
                         } else {
                             makeBackupDir()
                             BrowserUnit.deleteDir(previewsFolder_backup)
@@ -281,9 +288,9 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
@@ -299,13 +306,14 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
             textView.setText(R.string.hint_database)
             action_ok = dialogView.findViewById(R.id.action_ok)
             action_ok.setOnClickListener {
-                dialog!!.cancel()
+                dialog?.cancel()
                 try {
                     if (Build.VERSION.SDK_INT < 29) {
-                        val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        val hasWRITE_EXTERNAL_STORAGE =
+                            activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                             HelperUnit.grantPermissionsStorage(activity)
-                            dialog!!.cancel()
+                            dialog?.cancel()
                         } else {
                             BrowserUnit.deleteDir(previewsFolder_app)
                             copyDirectory(previewsFolder_backup, previewsFolder_app)
@@ -323,19 +331,20 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
                 }
             }
             action_cancel = dialogView.findViewById(R.id.action_cancel)
-            action_cancel.setOnClickListener { dialog!!.cancel() }
-            dialog!!.setContentView(dialogView)
-            dialog!!.show()
+            action_cancel.setOnClickListener { dialog?.cancel() }
+            dialog?.setContentView(dialogView)
+            dialog?.show()
             HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
             false
         }
     }
 
     private fun makeBackupDir() {
-        val backupDir = File(activity!!.getExternalFilesDir(null), "browser_backup//")
+        val backupDir = File(activity?.getExternalFilesDir(null), "browser_backup//")
         val noMedia = File(backupDir, "//.nomedia")
         if (Build.VERSION.SDK_INT < 29) {
-            val hasWRITE_EXTERNAL_STORAGE = activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            val hasWRITE_EXTERNAL_STORAGE =
+                activity?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                 HelperUnit.grantPermissionsStorage(activity)
             } else {
@@ -397,8 +406,12 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
 
     companion object {
         private fun backupUserPrefs(context: Context?) {
-            val prefsFile = File(context!!.filesDir, "../shared_prefs/" + context.packageName + "_preferences.xml")
-            val backupFile = File(context.getExternalFilesDir(null),
+            val prefsFile = File(
+                context?.filesDir,
+                "../shared_prefs/" + context?.packageName + "_preferences.xml"
+            )
+            val backupFile = File(
+                context?.getExternalFilesDir(null),
                     "browser_backup/preferenceBackup.xml")
             try {
                 val src = FileInputStream(prefsFile).channel
@@ -414,7 +427,8 @@ class Fragment_settings_data : PreferenceFragmentCompat() {
 
         @SuppressLint("ApplySharedPref")
         private fun restoreUserPrefs(context: Context?) {
-            val backupFile = File(context!!.getExternalFilesDir(null),
+            val backupFile = File(
+                context?.getExternalFilesDir(null),
                     "browser_backup/preferenceBackup.xml")
             val error: String
             try {

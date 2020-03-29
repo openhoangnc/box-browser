@@ -40,7 +40,7 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         this.enable = enable
     }
 
-    override fun onPageFinished(view: WebView, url: String) {
+    override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
         if (sp.getBoolean("saveHistory", true)) {
             val action = RecordAction(context)
@@ -60,7 +60,7 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         }
     }
 
-    override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
         val uri = Uri.parse(url)
         return handleUri(view, uri)
     }
@@ -71,13 +71,13 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         return handleUri(view, uri)
     }
 
-    private fun handleUri(webView: WebView, uri: Uri): Boolean {
+    private fun handleUri(webView: WebView?, uri: Uri?): Boolean {
         val url = uri.toString()
         val parsedUri = Uri.parse(url)
         val packageManager = context.packageManager
         val browseIntent = Intent(Intent.ACTION_VIEW).setData(parsedUri)
         if (url.startsWith("http")) {
-            webView.loadUrl(url, ninjaWebView.requestHeaders)
+            webView?.loadUrl(url, ninjaWebView.requestHeaders)
             return true
         }
         if (browseIntent.resolveActivity(packageManager) != null) {
@@ -98,11 +98,12 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
                 //try to find fallback url
                 val fallbackUrl = intent.getStringExtra("browser_fallback_url")
                 if (fallbackUrl != null) {
-                    webView.loadUrl(fallbackUrl)
+                    webView?.loadUrl(fallbackUrl)
                     return true
                 }
                 //invite to install
-                val marketIntent = Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=" + intent.getPackage()))
+                val marketIntent =
+                    Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?, id=" + intent.getPackage()))
                 if (marketIntent.resolveActivity(packageManager) != null) {
                     context.startActivity(marketIntent)
                     return true
@@ -116,7 +117,7 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
 
     // TODO: this fun should be removed due to Deprecated
     override fun shouldInterceptRequest(view: WebView, url: String): WebResourceResponse? {
-        if (enable && !white && adBlock!!.isAd(url)) {
+        if (enable && !white && adBlock?.isAd(url)!!) {
             return WebResourceResponse(
                     BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                     BrowserUnit.URL_ENCODING,
@@ -124,7 +125,7 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
             )
         }
         if (!sp.getBoolean(context.getString(R.string.sp_cookies), true)) {
-            if (cookie!!.isWhite(url)) {
+            if (cookie?.isWhite(url)!!) {
                 val manager = CookieManager.getInstance()
                 manager.getCookie(url)
                 manager.setAcceptCookie(true)
@@ -136,8 +137,11 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         return super.shouldInterceptRequest(view, url)
     }
 
-    override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
-        if (enable && !white && adBlock!!.isAd(request.url.toString())) {
+    override fun shouldInterceptRequest(
+        view: WebView?,
+        request: WebResourceRequest?
+    ): WebResourceResponse? {
+        if (enable && !white && adBlock?.isAd(request?.url.toString())!!) {
             return WebResourceResponse(
                     BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                     BrowserUnit.URL_ENCODING,
@@ -145,9 +149,9 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
             )
         }
         if (!sp.getBoolean(context.getString(R.string.sp_cookies), true)) {
-            if (cookie!!.isWhite(request.url.toString())) {
+            if (cookie?.isWhite(request?.url.toString())!!) {
                 val manager = CookieManager.getInstance()
-                manager.getCookie(request.url.toString())
+                manager.getCookie(request?.url.toString())
                 manager.setAcceptCookie(true)
             } else {
                 val manager = CookieManager.getInstance()
@@ -157,7 +161,7 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         return super.shouldInterceptRequest(view, request)
     }
 
-    override fun onFormResubmission(view: WebView, doNotResend: Message, resend: Message) {
+    override fun onFormResubmission(view: WebView?, doNotResend: Message?, resend: Message?) {
         val holder = IntentUnit.context as? Activity ?: return
         val dialog = BottomSheetDialog(holder)
         val dialogView = View.inflate(holder, R.layout.dialog_action, null)
@@ -165,12 +169,12 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         textView.setText(R.string.dialog_content_resubmission)
         val action_ok = dialogView.findViewById<Button>(R.id.action_ok)
         action_ok.setOnClickListener {
-            resend.sendToTarget()
+            resend?.sendToTarget()
             dialog.cancel()
         }
         val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)
         action_cancel.setOnClickListener {
-            doNotResend.sendToTarget()
+            doNotResend?.sendToTarget()
             dialog.cancel()
         }
         dialog.setContentView(dialogView)
@@ -178,9 +182,9 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         HelperUnit.setBottomSheetBehavior(dialog, dialogView, BottomSheetBehavior.STATE_EXPANDED)
     }
 
-    override fun onReceivedSslError(view: WebView, handler: SslErrorHandler, error: SslError) {
+    override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
         var message = "\"SSL Certificate error.\""
-        when (error.primaryError) {
+        when (error?.primaryError) {
             SslError.SSL_UNTRUSTED -> message = "\"Certificate authority is not trusted.\""
             SslError.SSL_EXPIRED -> message = "\"Certificate has expired.\""
             SslError.SSL_IDMISMATCH -> message = "\"Certificate Hostname mismatch.\""
@@ -195,12 +199,12 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         textView.text = text
         val action_ok = dialogView.findViewById<Button>(R.id.action_ok)
         action_ok.setOnClickListener {
-            handler.proceed()
+            handler?.proceed()
             dialog.cancel()
         }
         val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)
         action_cancel.setOnClickListener {
-            handler.cancel()
+            handler?.cancel()
             dialog.cancel()
         }
         dialog.setContentView(dialogView)
@@ -208,7 +212,12 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         HelperUnit.setBottomSheetBehavior(dialog, dialogView, BottomSheetBehavior.STATE_EXPANDED)
     }
 
-    override fun onReceivedHttpAuthRequest(view: WebView, handler: HttpAuthHandler, host: String, realm: String) {
+    override fun onReceivedHttpAuthRequest(
+        view: WebView?,
+        handler: HttpAuthHandler?,
+        host: String?,
+        realm: String?
+    ) {
         val dialog = BottomSheetDialog(context)
         val dialogView = View.inflate(context, R.layout.dialog_edit_bookmark, null)
         val pass_userNameET = dialogView.findViewById<EditText>(R.id.pass_userName)
@@ -219,12 +228,12 @@ class NinjaWebViewClient(private val ninjaWebView: NinjaWebView) : WebViewClient
         action_ok.setOnClickListener {
             val user = pass_userNameET.text.toString().trim { it <= ' ' }
             val pass = pass_userPWET.text.toString().trim { it <= ' ' }
-            handler.proceed(user, pass)
+            handler?.proceed(user, pass)
             dialog.cancel()
         }
         val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)
         action_cancel.setOnClickListener {
-            handler.cancel()
+            handler?.cancel()
             dialog.cancel()
         }
         dialog.setContentView(dialogView)

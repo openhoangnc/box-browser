@@ -17,7 +17,7 @@ class SettingsStartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.content_frame, Fragment_settings_start())

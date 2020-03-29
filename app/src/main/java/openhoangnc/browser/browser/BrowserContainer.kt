@@ -22,7 +22,7 @@ object BrowserContainer {
     @Synchronized
     fun remove(controller: AlbumController?) {
         list.remove(controller)
-        (controller as NinjaWebView?)!!.destroy()
+        (controller as NinjaWebView?)?.destroy()
     }
 
     fun indexOf(controller: AlbumController?): Int {

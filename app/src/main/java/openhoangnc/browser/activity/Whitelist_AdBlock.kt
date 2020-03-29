@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import openhoangnc.browser.Ninja.R
-import openhoangnc.browser.activity.Whitelist_AdBlock
 import openhoangnc.browser.browser.AdBlock
 import openhoangnc.browser.database.RecordAction
 import openhoangnc.browser.unit.BrowserUnit
@@ -34,7 +33,7 @@ class Whitelist_AdBlock : AppCompatActivity() {
         setContentView(R.layout.activity_whitelist)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val action = RecordAction(this)
         action.open(false)
         list = action.listDomains(RecordUnit.TABLE_WHITELIST)
@@ -43,7 +42,7 @@ class Whitelist_AdBlock : AppCompatActivity() {
         listView.emptyView = findViewById(R.id.whitelist_empty)
         adapter = Adapter_Whitelist(this, list)
         listView.adapter = adapter
-        adapter!!.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
         val button = findViewById<Button>(R.id.whitelist_add)
         button.setOnClickListener {
             val editText = findViewById<EditText>(R.id.whitelist_edit)
@@ -60,8 +59,8 @@ class Whitelist_AdBlock : AppCompatActivity() {
                 } else {
                     val adBlock = AdBlock(this@Whitelist_AdBlock)
                     adBlock.addDomain(domain.trim { it <= ' ' })
-                    list!!.add(0, domain.trim { it <= ' ' })
-                    adapter!!.notifyDataSetChanged()
+                    list?.add(0, domain.trim { it <= ' ' })
+                    adapter?.notifyDataSetChanged()
                     NinjaToast.show(this@Whitelist_AdBlock, R.string.toast_add_whitelist_successful)
                 }
                 action.close()
@@ -91,8 +90,8 @@ class Whitelist_AdBlock : AppCompatActivity() {
                 action_ok.setOnClickListener {
                     val adBlock = AdBlock(this@Whitelist_AdBlock)
                     adBlock.clearDomains()
-                    list!!.clear()
-                    adapter!!.notifyDataSetChanged()
+                    list?.clear()
+                    adapter?.notifyDataSetChanged()
                     dialog.cancel()
                 }
                 val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)

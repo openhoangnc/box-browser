@@ -6,7 +6,7 @@ import openhoangnc.browser.view.NinjaWebView
 
 class NinjaGestureListener(private val webView: NinjaWebView) : SimpleOnGestureListener() {
     private var longPress = true
-    override fun onLongPress(e: MotionEvent) {
+    override fun onLongPress(e: MotionEvent?) {
         if (longPress) {
             webView.onLongPress()
         }
@@ -17,7 +17,7 @@ class NinjaGestureListener(private val webView: NinjaWebView) : SimpleOnGestureL
         return false
     }
 
-    override fun onShowPress(e: MotionEvent) {
+    override fun onShowPress(e: MotionEvent?) {
         longPress = true
     }
 

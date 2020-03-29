@@ -13,7 +13,7 @@ import openhoangnc.browser.unit.HelperUnit
 import java.util.*
 
 class Fragment_clear : PreferenceFragmentCompat() {
-    override fun onCreatePreferences(savedInstanceState: Bundle, rootKey: String) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preference_clear, rootKey)
         Objects.requireNonNull<Preference>(findPreference("sp_deleteDatabase")).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             val sp = preferenceScreen.sharedPreferences
@@ -24,10 +24,10 @@ class Fragment_clear : PreferenceFragmentCompat() {
             val action_ok = dialogView.findViewById<Button>(R.id.action_ok)
             action_ok.setOnClickListener {
                 dialog.cancel()
-                activity!!.deleteDatabase("Ninja4.db")
-                activity!!.deleteDatabase("pass_DB_v01.db")
+                activity?.deleteDatabase("Ninja4.db")
+                activity?.deleteDatabase("pass_DB_v01.db")
                 sp.edit().putInt("restart_changed", 1).apply()
-                activity!!.finish()
+                activity?.finish()
             }
             val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)
             action_cancel.setOnClickListener { dialog.cancel() }

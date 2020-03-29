@@ -37,14 +37,15 @@ object BrowserUnit {
     const val SUFFIX_PNG = ".png"
     private const val SUFFIX_TXT = ".txt"
     const val MIME_TYPE_TEXT_PLAIN = "text/plain"
-    private const val SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q="
+    private const val SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?, q="
     private const val SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q="
-    private const val SEARCH_ENGINE_STARTPAGE = "https://startpage.com/do/search?query="
-    private const val SEARCH_ENGINE_BING = "http://www.bing.com/search?q="
-    private const val SEARCH_ENGINE_BAIDU = "https://www.baidu.com/s?wd="
+    private const val SEARCH_ENGINE_STARTPAGE = "https://startpage.com/do/search?, query="
+    private const val SEARCH_ENGINE_BING = "http://www.bing.com/search?, q="
+    private const val SEARCH_ENGINE_BAIDU = "https://www.baidu.com/s?, wd="
     private const val SEARCH_ENGINE_QWANT = "https://www.qwant.com/?q="
-    private const val SEARCH_ENGINE_ECOSIA = "https://www.ecosia.org/search?q="
-    private const val SEARCH_ENGINE_STARTPAGE_DE = "https://startpage.com/do/search?lui=deu&language=deutsch&query="
+    private const val SEARCH_ENGINE_ECOSIA = "https://www.ecosia.org/search?, q="
+    private const val SEARCH_ENGINE_STARTPAGE_DE =
+        "https://startpage.com/do/search?, lui=deu&language=deutsch&query="
     private const val SEARCH_ENGINE_SEARX = "https://searx.me/?q="
     const val URL_ENCODING = "UTF-8"
     private const val URL_ABOUT_BLANK = "about:blank"
@@ -53,9 +54,9 @@ object BrowserUnit {
     private const val URL_SCHEME_FILE = "file://"
     private const val URL_SCHEME_HTTP = "https://"
     const val URL_SCHEME_INTENT = "intent://"
-    private const val URL_PREFIX_GOOGLE_PLAY = "www.google.com/url?q="
+    private const val URL_PREFIX_GOOGLE_PLAY = "www.google.com/url?, q="
     private const val URL_SUFFIX_GOOGLE_PLAY = "&sa"
-    private const val URL_PREFIX_GOOGLE_PLUS = "plus.url.google.com/url?q="
+    private const val URL_PREFIX_GOOGLE_PLUS = "plus.url.google.com/url?, q="
     private const val URL_SUFFIX_GOOGLE_PLUS = "&rct"
     fun isURL(url: String?): Boolean {
         var url = url ?: return false
@@ -108,7 +109,7 @@ object BrowserUnit {
         }
         val sp = PreferenceManager.getDefaultSharedPreferences(context)
         val custom = sp.getString("sp_search_engine_custom", SEARCH_ENGINE_STARTPAGE)
-        val i = Integer.valueOf(sp.getString(context!!.getString(R.string.sp_search_engine), "9")!!)
+        val i = Integer.valueOf(sp.getString(context?.getString(R.string.sp_search_engine), "9")!!)
         return when (i) {
             0 -> SEARCH_ENGINE_STARTPAGE + query
             1 -> SEARCH_ENGINE_STARTPAGE_DE + query
@@ -126,10 +127,10 @@ object BrowserUnit {
 
     fun bitmap2File(context: Context?, bitmap: Bitmap?, filename: String?): Boolean {
         try {
-            val fileOutputStream = context!!.openFileOutput(filename, Context.MODE_PRIVATE)
-            bitmap!!.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
-            fileOutputStream.flush()
-            fileOutputStream.close()
+            val fileOutputStream = context?.openFileOutput(filename, Context.MODE_PRIVATE)
+            bitmap?.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
+            fileOutputStream?.flush()
+            fileOutputStream?.close()
         } catch (e: Exception) {
             return false
         }
@@ -138,7 +139,7 @@ object BrowserUnit {
 
     fun file2Bitmap(context: Context?, filename: String?): Bitmap? {
         return try {
-            val fileInputStream = context!!.openFileInput(filename)
+            val fileInputStream = context?.openFileInput(filename)
             BitmapFactory.decodeStream(fileInputStream)
         } catch (e: Exception) {
             null
@@ -146,8 +147,13 @@ object BrowserUnit {
     }
 
     fun download(context: Context?, url: String?, contentDisposition: String?, mimeType: String?) {
-        val text = context!!.getString(R.string.dialog_title_download) + " - " + URLUtil.guessFileName(url, contentDisposition, mimeType)
-        val dialog = BottomSheetDialog(context)
+        val text =
+            context?.getString(R.string.dialog_title_download) + " - " + URLUtil.guessFileName(
+                url,
+                contentDisposition,
+                mimeType
+            )
+        val dialog = BottomSheetDialog(context!!)
         val dialogView = View.inflate(context, R.layout.dialog_action, null)
         val textView = dialogView.findViewById<TextView>(R.id.dialog_text)
         textView.text = text
@@ -201,15 +207,15 @@ object BrowserUnit {
         when (i) {
             0 -> {
                 list = action.listDomains(RecordUnit.TABLE_WHITELIST)
-                filename = context!!.getString(R.string.export_whitelistAdBlock)
+                filename = context?.getString(R.string.export_whitelistAdBlock)!!
             }
             1 -> {
                 list = action.listDomains(RecordUnit.TABLE_JAVASCRIPT)
-                filename = context!!.getString(R.string.export_whitelistJS)
+                filename = context?.getString(R.string.export_whitelistJS)!!
             }
             else -> {
                 list = action.listDomains(RecordUnit.TABLE_COOKIE)
-                filename = context!!.getString(R.string.export_whitelistCookie)
+                filename = context?.getString(R.string.export_whitelistCookie)!!
             }
         }
         action.close()
@@ -237,15 +243,15 @@ object BrowserUnit {
             when (i) {
                 0 -> {
                     adBlock = AdBlock(context)
-                    filename = context!!.getString(R.string.export_whitelistAdBlock)
+                    filename = context?.getString(R.string.export_whitelistAdBlock)!!
                 }
                 1 -> {
                     js = Javascript(context)
-                    filename = context!!.getString(R.string.export_whitelistJS)
+                    filename = context?.getString(R.string.export_whitelistJS)!!
                 }
                 else -> {
                     cookie = Cookie(context)
-                    filename = context!!.getString(R.string.export_whitelistAdBlock)
+                    filename = context?.getString(R.string.export_whitelistAdBlock)!!
                 }
             }
             val file = File(context.getExternalFilesDir(null), "browser_backup//$filename$SUFFIX_TXT")
@@ -256,15 +262,15 @@ object BrowserUnit {
             while (reader.readLine().also { line = it } != null) {
                 when (i) {
                     0 -> if (!action.checkDomain(line, RecordUnit.TABLE_WHITELIST)) {
-                        adBlock!!.addDomain(line)
+                        adBlock?.addDomain(line)
                         count++
                     }
                     1 -> if (!action.checkDomain(line, RecordUnit.TABLE_JAVASCRIPT)) {
-                        js!!.addDomain(line)
+                        js?.addDomain(line)
                         count++
                     }
                     else -> if (!action.checkDomain(line, RecordUnit.COLUMN_DOMAIN)) {
-                        cookie!!.addDomain(line)
+                        cookie?.addDomain(line)
                         count++
                     }
                 }
@@ -306,10 +312,8 @@ object BrowserUnit {
         action.open(true)
         action.clearHistory()
         action.close()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            val shortcutManager = context!!.getSystemService(ShortcutManager::class.java)
-            shortcutManager!!.removeAllDynamicShortcuts()
-        }
+        val shortcutManager = context?.getSystemService(ShortcutManager::class.java)
+        shortcutManager?.removeAllDynamicShortcuts()
     }
 
     fun clearIndexedDB(context: Context) {

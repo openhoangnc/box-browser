@@ -13,7 +13,7 @@
         android:ellipsize="end"
         android:includeFontPadding="false"
         android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceListItem"></TextView>
+        android:textAppearance="?android:attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/complete_item_url"
@@ -22,6 +22,6 @@
         android:ellipsize="end"
         android:includeFontPadding="false"
         android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </LinearLayout>

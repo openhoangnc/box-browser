@@ -15,7 +15,7 @@ class GridAdapter_filter(private val context: Context?, private val list: List<G
         var icon: ImageView? = null
     }
 
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holder: Holder
         var view = convertView
         if (view == null) {
@@ -28,9 +28,9 @@ class GridAdapter_filter(private val context: Context?, private val list: List<G
             holder = view.tag as Holder
         }
         val item = list[position]
-        holder.title!!.text = item.title
-        holder.icon!!.setImageDrawable(item.icon)
-        return view
+        holder.title?.text = item.title
+        holder.icon?.setImageDrawable(item.icon)
+        return view!!
     }
 
     override fun getCount(): Int { // TODO Auto-generated method stub

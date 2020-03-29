@@ -69,12 +69,12 @@ class AdBlock(private val context: Context?) {
 
         private fun loadHosts(context: Context?) {
             val thread = Thread(Runnable {
-                val manager = context!!.assets
+                val manager = context?.assets
                 try {
-                    val reader = BufferedReader(InputStreamReader(manager.open(FILE)))
+                    val reader = BufferedReader(InputStreamReader(manager?.open(FILE)!!))
                     var line: String? = null
                     while ({ line = reader.readLine(); line }() != null) {
-                        hosts.add(line!!.toLowerCase(locale))
+                        hosts.add(line?.toLowerCase(locale)!!)
                     }
                 } catch (i: IOException) {
                     Log.w("browser", "Error loading hosts", i)
@@ -94,14 +94,13 @@ class AdBlock(private val context: Context?) {
 
         @Throws(URISyntaxException::class)
         private fun getDomain(url: String): String {
-            var url = url
-            url = url.toLowerCase(locale)
-            val index = url.indexOf('/', 8) // -> http://(7) and https://(8)
+            var urlLower = url.toLowerCase(locale)
+            val index = urlLower.indexOf('/', 8) // -> http://(7) and https://(8)
             if (index != -1) {
-                url = url.substring(0, index)
+                urlLower = urlLower.substring(0, index)
             }
-            val uri = URI(url)
-            val domain = uri.host ?: return url
+            val uri = URI(urlLower)
+            val domain = uri.host ?: return urlLower
             return if (domain.startsWith("www.")) domain.substring(4) else domain
         }
     }

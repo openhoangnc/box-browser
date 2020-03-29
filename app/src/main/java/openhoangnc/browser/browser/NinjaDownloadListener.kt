@@ -7,10 +7,16 @@ import openhoangnc.browser.unit.BrowserUnit
 import openhoangnc.browser.unit.IntentUnit
 
 class NinjaDownloadListener(private val context: Context?) : DownloadListener {
-    override fun onDownloadStart(url: String, userAgent: String, contentDisposition: String, mimeType: String, contentLength: Long) {
+    override fun onDownloadStart(
+        url: String?,
+        userAgent: String?,
+        contentDisposition: String?,
+        mimetype: String?,
+        contentLength: Long
+    ) {
         val holder = IntentUnit.context
         if (holder !is Activity) {
-            BrowserUnit.download(context, url, contentDisposition, mimeType)
+            BrowserUnit.download(context, url, contentDisposition, mimetype)
             return
         }
     }

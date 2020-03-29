@@ -10,9 +10,9 @@ import android.widget.TextView
 import openhoangnc.browser.Ninja.R
 import openhoangnc.browser.browser.Javascript
 
-class Adapter_Whitelist(context: Context, list: MutableList<String>?) : ArrayAdapter<String>(context, R.layout.whitelist_item, list!!) {
-    private val layoutResId: Int
-    private val list: MutableList<String>?
+class Adapter_Whitelist(context: Context, private val list: MutableList<String>?) :
+    ArrayAdapter<String>(context, R.layout.whitelist_item, list!!) {
+    private val layoutResId: Int = R.layout.whitelist_item
 
     private class Holder {
         var domain: TextView? = null
@@ -31,10 +31,10 @@ class Adapter_Whitelist(context: Context, list: MutableList<String>?) : ArrayAda
         } else {
             holder = view.tag as Holder
         }
-        holder.domain!!.text = list!![position]
-        holder.cancel!!.setOnClickListener {
-            val Javascript = Javascript(context)
-            Javascript.removeDomain(list[position])
+        holder.domain?.text = list!![position]
+        holder.cancel?.setOnClickListener {
+            val javascript = Javascript(context)
+            javascript.removeDomain(list[position])
             list.removeAt(position)
             notifyDataSetChanged()
             NinjaToast.show(context, R.string.toast_delete_successful)
@@ -42,8 +42,4 @@ class Adapter_Whitelist(context: Context, list: MutableList<String>?) : ArrayAda
         return view!!
     }
 
-    init {
-        layoutResId = R.layout.whitelist_item
-        this.list = list
-    }
 }

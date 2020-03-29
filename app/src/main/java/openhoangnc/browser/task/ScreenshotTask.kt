@@ -44,49 +44,57 @@ class ScreenshotTask(private val context: Context?, private val webView: NinjaWe
         dialog = BottomSheetDialog(activity!!)
         val dialogView = View.inflate(activity, R.layout.dialog_progress, null)
         val textView = dialogView.findViewById<TextView>(R.id.dialog_text)
-        textView.text = context!!.getString(R.string.toast_wait_a_minute)
-        dialog!!.setContentView(dialogView)
-        dialog!!.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        dialog!!.show()
+        textView.text = context?.getString(R.string.toast_wait_a_minute)
+        dialog?.setContentView(dialogView)
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        dialog?.show()
         HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
         try {
             windowWidth = ViewUnit.getWindowWidth(context)
-            contentHeight = webView!!.contentHeight * ViewUnit.getDensity(context)
+            contentHeight = webView?.contentHeight!! * ViewUnit.getDensity(context)
             title = HelperUnit.fileName(webView.url)
         } catch (e: Exception) {
-            NinjaToast.show(activity, context.getString(R.string.toast_error))
+            NinjaToast.show(activity, context?.getString(R.string.toast_error))
         }
     }
 
     @Throws(IOException::class)
     private fun saveImage(bitmap: Bitmap?, name: String) {
         val fos: OutputStream?
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val resolver = context!!.contentResolver
-            val contentValues = ContentValues()
-            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
-            contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "Pictures/" + "Screenshots/")
-            uri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-            fos = resolver.openOutputStream(uri!!)
-        } else {
-            val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_SCREENSHOTS).toString() + File.separator
-            val file = File(imagesDir)
-            if (!file.exists()) {
-                file.mkdir()
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                val resolver = context?.contentResolver
+                val contentValues = ContentValues()
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
+                contentValues.put(
+                    MediaStore.MediaColumns.RELATIVE_PATH,
+                    "Pictures/" + "Screenshots/"
+                )
+                uri = resolver?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+                fos = resolver?.openOutputStream(uri!!)
+            } else {
+                val imagesDir =
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_SCREENSHOTS)
+                        .toString() + File.separator
+                val file = File(imagesDir)
+                if (!file.exists()) {
+                    file.mkdir()
+                }
+                val image = File(imagesDir, "$name.jpg")
+                fos = FileOutputStream(image)
+                uri = Uri.fromFile(image)
             }
-            val image = File(imagesDir, "$name.jpg")
-            fos = FileOutputStream(image)
-            uri = Uri.fromFile(image)
+            bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            fos?.flush()
+            fos?.close()
         }
-        bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-        fos!!.flush()
-        fos!!.close()
     }
 
     override fun doInBackground(vararg params: Void?): Boolean {
         if (Build.VERSION.SDK_INT < 29) {
-            val hasWRITE_EXTERNAL_STORAGE = context!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            val hasWRITE_EXTERNAL_STORAGE =
+                context?.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             if (hasWRITE_EXTERNAL_STORAGE != PackageManager.PERMISSION_GRANTED) {
                 HelperUnit.grantPermissionsStorage(activity)
             } else {
@@ -105,17 +113,17 @@ class ScreenshotTask(private val context: Context?, private val webView: NinjaWe
                 path = null
             }
         }
-        return path != null && !path!!.isEmpty()
+        return path != null && !path?.isEmpty()!!
     }
 
-    override fun onPostExecute(result: Boolean) {
-        dialog!!.cancel()
+    override fun onPostExecute(result: Boolean?) {
+        dialog?.cancel()
         val sp = PreferenceManager.getDefaultSharedPreferences(context)
         if (sp.getInt("screenshot", 0) == 1) {
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
             intent.setDataAndType(uri, "image/*")
-            context!!.startActivity(intent)
+            context?.startActivity(intent)
         } else {
             val bottomSheetDialog = BottomSheetDialog(activity!!)
             val dialogView = View.inflate(activity, R.layout.dialog_action, null)
@@ -126,7 +134,7 @@ class ScreenshotTask(private val context: Context?, private val webView: NinjaWe
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.setDataAndType(uri, "*/*")
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context!!.startActivity(intent)
+                context?.startActivity(intent)
                 bottomSheetDialog.cancel()
             }
             val action_cancel = dialogView.findViewById<Button>(R.id.action_cancel)

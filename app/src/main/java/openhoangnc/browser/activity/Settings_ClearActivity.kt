@@ -13,7 +13,6 @@ import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import openhoangnc.browser.Ninja.R
-import openhoangnc.browser.activity.Settings_ClearActivity
 import openhoangnc.browser.fragment.Fragment_clear
 import openhoangnc.browser.service.ClearService
 import openhoangnc.browser.unit.HelperUnit
@@ -26,7 +25,7 @@ class Settings_ClearActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.content_frame, Fragment_clear())

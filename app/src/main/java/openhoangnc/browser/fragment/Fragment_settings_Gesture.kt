@@ -7,7 +7,7 @@ import androidx.preference.PreferenceFragmentCompat
 import openhoangnc.browser.Ninja.R
 
 class Fragment_settings_Gesture : PreferenceFragmentCompat(), OnSharedPreferenceChangeListener {
-    override fun onCreatePreferences(savedInstanceState: Bundle, rootKey: String) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preference_gesture, rootKey)
     }
 
@@ -22,9 +22,9 @@ class Fragment_settings_Gesture : PreferenceFragmentCompat(), OnSharedPreference
         preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onSharedPreferenceChanged(sp: SharedPreferences, key: String) {
+    override fun onSharedPreferenceChanged(sp: SharedPreferences?, key: String?) {
         if (key == "sp_gestures_use" || key == "sp_gesture_action") {
-            sp.edit().putInt("restart_changed", 1).apply()
+            sp?.edit()?.putInt("restart_changed", 1)?.apply()
         }
     }
 }

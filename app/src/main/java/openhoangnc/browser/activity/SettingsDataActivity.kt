@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import openhoangnc.browser.Ninja.R
-import openhoangnc.browser.fragment.Fragment_settings_data
+import openhoangnc.browser.fragment.FragmentSettingsData
 import openhoangnc.browser.unit.HelperUnit
 
 class SettingsDataActivity : AppCompatActivity() {
@@ -17,10 +17,10 @@ class SettingsDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.content_frame, Fragment_settings_data())
+            .replace(R.id.content_frame, FragmentSettingsData())
                 .commit()
     }
 

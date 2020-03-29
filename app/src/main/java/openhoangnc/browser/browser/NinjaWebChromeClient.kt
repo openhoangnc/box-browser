@@ -22,28 +22,28 @@ class NinjaWebChromeClient(private val ninjaWebView: NinjaWebView) : WebChromeCl
         return false
     }
 
-    override fun onProgressChanged(view: WebView, progress: Int) {
-        super.onProgressChanged(view, progress)
-        ninjaWebView.update(progress)
+    override fun onProgressChanged(view: WebView?, newProgress: Int) {
+        super.onProgressChanged(view, newProgress)
+        ninjaWebView.update(newProgress)
     }
 
-    override fun onReceivedTitle(view: WebView, title: String) {
+    override fun onReceivedTitle(view: WebView?, title: String?) {
         super.onReceivedTitle(view, title)
         ninjaWebView.update(title)
     }
 
-    override fun onShowCustomView(view: View, callback: CustomViewCallback) {
-        ninjaWebView.getBrowserController()!!.onShowCustomView(view, callback)
+    override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+        ninjaWebView.getBrowserController()?.onShowCustomView(view, callback)
         super.onShowCustomView(view, callback)
     }
 
     override fun onHideCustomView() {
-        ninjaWebView.getBrowserController()!!.onHideCustomView()
+        ninjaWebView.getBrowserController()?.onHideCustomView()
         super.onHideCustomView()
     }
 
     override fun onShowFileChooser(webView: WebView, filePathCallback: ValueCallback<Array<Uri>>, fileChooserParams: FileChooserParams): Boolean {
-        ninjaWebView.getBrowserController()!!.showFileChooser(filePathCallback)
+        ninjaWebView.getBrowserController()?.showFileChooser(filePathCallback)
         return true
     }
 

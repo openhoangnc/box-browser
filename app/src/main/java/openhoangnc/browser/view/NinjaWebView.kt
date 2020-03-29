@@ -23,19 +23,24 @@ import java.util.*
 class NinjaWebView : WebView, AlbumController {
     private var onScrollChangeListener: OnScrollChangeListener? = null
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     override fun onScrollChanged(l: Int, t: Int, old_l: Int, old_t: Int) {
         super.onScrollChanged(l, t, old_l, old_t)
         if (onScrollChangeListener != null) {
-            onScrollChangeListener!!.onScrollChange(t, old_t)
+            onScrollChangeListener?.onScrollChange(t, old_t)
         }
     }
 
-    fun setOnScrollChangeListener(onScrollChangeListener: OnScrollChangeListener?) {
-        this.onScrollChangeListener = onScrollChangeListener
-    }
+// TODO: remove
+//    fun setOnScrollChangeListener(onScrollChangeListener: OnScrollChangeListener?) {
+//        this.onScrollChangeListener = onScrollChangeListener
+//    }
 
     interface OnScrollChangeListener {
         /**
@@ -76,7 +81,7 @@ class NinjaWebView : WebView, AlbumController {
 
     fun setBrowserController(browserController: BrowserController?) {
         this.browserController = browserController
-        album!!.setBrowserController(browserController)
+        album?.setBrowserController(browserController)
     }
 
     constructor(context: Context?) : super(context) // Cannot create a dialog, the WebView context is not an activity
@@ -106,7 +111,7 @@ class NinjaWebView : WebView, AlbumController {
         setWebChromeClient(webChromeClient)
         setDownloadListener(downloadListener)
         setOnTouchListener { view, motionEvent ->
-            gestureDetector!!.onTouchEvent(motionEvent)
+            gestureDetector?.onTouchEvent(motionEvent)
             false
         }
     }
@@ -115,42 +120,61 @@ class NinjaWebView : WebView, AlbumController {
     @Synchronized
     private fun initWebSettings() {
         webSettings = settings
-        webSettings!!.setBuiltInZoomControls(true)
-        webSettings!!.setDisplayZoomControls(false)
-        webSettings!!.setSupportZoom(true)
-        webSettings!!.setSupportMultipleWindows(true)
-        webSettings!!.setLoadWithOverviewMode(true)
-        webSettings!!.setUseWideViewPort(true)
-        webSettings!!.setSafeBrowsingEnabled(true)
+        webSettings?.builtInZoomControls = true
+        webSettings?.displayZoomControls = false
+        webSettings?.setSupportZoom(true)
+        webSettings?.setSupportMultipleWindows(true)
+        webSettings?.loadWithOverviewMode = true
+        webSettings?.useWideViewPort = true
+        webSettings?.safeBrowsingEnabled = true
     }
 
     @Synchronized
     fun initPreferences() {
         sp = PreferenceManager.getDefaultSharedPreferences(context)
-        val userAgent = sp!!.getString("userAgent", "")
+        val userAgent = sp?.getString("userAgent", "")
         webSettings = settings
-        if (!userAgent!!.isEmpty()) {
-            webSettings!!.setUserAgentString(userAgent)
+        if (!userAgent?.isEmpty()!!) {
+            webSettings?.userAgentString = userAgent
         }
-        webViewClient!!.enableAdBlock(sp!!.getBoolean(context!!.getString(R.string.sp_ad_block), true))
+        webViewClient?.enableAdBlock(
+            sp?.getBoolean(
+                context?.getString(R.string.sp_ad_block),
+                true
+            )!!
+        )
         webSettings = settings
-        webSettings!!.setTextZoom(sp!!.getString("sp_fontSize", "100")!!.toInt())
-        webSettings!!.setAllowFileAccessFromFileURLs(sp!!.getBoolean("sp_remote", false))
-        webSettings!!.setAllowUniversalAccessFromFileURLs(sp!!.getBoolean("sp_remote", false))
-        webSettings!!.setDomStorageEnabled(sp!!.getBoolean("sp_remote", false))
-        webSettings!!.setBlockNetworkImage(!sp!!.getBoolean(context!!.getString(R.string.sp_images), true))
-        webSettings!!.setJavaScriptEnabled(sp!!.getBoolean(context!!.getString(R.string.sp_javascript), true))
-        webSettings!!.setJavaScriptCanOpenWindowsAutomatically(sp!!.getBoolean(context!!.getString(R.string.sp_javascript), true))
-        webSettings!!.setGeolocationEnabled(sp!!.getBoolean(context!!.getString(R.string.sp_location), false))
+        webSettings?.textZoom = sp?.getString("sp_fontSize", "100")?.toInt()!!
+        webSettings?.allowFileAccessFromFileURLs = sp?.getBoolean("sp_remote", false)!!
+        webSettings?.allowUniversalAccessFromFileURLs = sp?.getBoolean("sp_remote", false)!!
+        webSettings?.domStorageEnabled = sp?.getBoolean("sp_remote", false)!!
+        webSettings?.blockNetworkImage = !sp?.getBoolean(
+            context?.getString(R.string.sp_images),
+            true
+        )!!
+        webSettings?.javaScriptEnabled = sp?.getBoolean(
+            context?.getString(R.string.sp_javascript),
+            true
+        )!!
+        webSettings?.javaScriptCanOpenWindowsAutomatically = sp?.getBoolean(
+            context?.getString(R.string.sp_javascript),
+            true
+        )!!
+        webSettings?.setGeolocationEnabled(
+            sp?.getBoolean(
+                context?.getString(R.string.sp_location),
+                false
+            )!!
+        )
         val manager = CookieManager.getInstance()
-        manager.setAcceptCookie(sp!!.getBoolean(context!!.getString(R.string.sp_cookies), true))
+        manager.setAcceptCookie(sp?.getBoolean(context?.getString(R.string.sp_cookies), true)!!)
     }
 
     @Synchronized
     private fun initAlbum() {
-        album!!.setAlbumCover(null)
-        album!!.setAlbumTitle(context!!.getString(R.string.app_name))
-        album!!.setBrowserController(browserController)
+        album?.setAlbumCover(null)
+        album?.setAlbumTitle(context?.getString(R.string.app_name))
+        album?.setBrowserController(browserController)
     }
 
     @get:Synchronized
@@ -158,7 +182,7 @@ class NinjaWebView : WebView, AlbumController {
         get() {
             val requestHeaders = HashMap<String, String>()
             requestHeaders["DNT"] = "1"
-            if (sp!!.getBoolean(context!!.getString(R.string.sp_savedata), false)) {
+            if (sp?.getBoolean(context?.getString(R.string.sp_savedata), false)!!) {
                 requestHeaders["Save-Data"] = "on"
             }
             return requestHeaders
@@ -166,20 +190,20 @@ class NinjaWebView : WebView, AlbumController {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Synchronized
-    override fun loadUrl(url: String) {
+    override fun loadUrl(url: String?) {
         if (url == null || url.trim { it <= ' ' }.isEmpty()) {
             NinjaToast.show(context, R.string.toast_load_error)
             return
         } else {
-            if (!sp!!.getBoolean(context!!.getString(R.string.sp_javascript), true)) {
-                if (javaHosts!!.isWhite(url)) {
+            if (!sp?.getBoolean(context?.getString(R.string.sp_javascript), true)!!) {
+                if (javaHosts?.isWhite(url)!!) {
                     webSettings = settings
-                    webSettings!!.setJavaScriptCanOpenWindowsAutomatically(true)
-                    webSettings!!.setJavaScriptEnabled(true)
+                    webSettings?.javaScriptCanOpenWindowsAutomatically = true
+                    webSettings?.javaScriptEnabled = true
                 } else {
                     webSettings = settings
-                    webSettings!!.setJavaScriptCanOpenWindowsAutomatically(false)
-                    webSettings!!.setJavaScriptEnabled(false)
+                    webSettings?.javaScriptCanOpenWindowsAutomatically = false
+                    webSettings?.javaScriptEnabled = false
                 }
             }
         }
@@ -187,48 +211,48 @@ class NinjaWebView : WebView, AlbumController {
     }
 
     override val albumView: View?
-        get() = album!!.albumView
+        get() = album?.albumView
 
     override fun setAlbumCover(bitmap: Bitmap?) {
-        album!!.setAlbumCover(bitmap)
+        album?.setAlbumCover(bitmap)
     }
 
     override var albumTitle: String?
-        get() = album!!.getAlbumTitle()
+        get() = album?.getAlbumTitle()
         set(title) {
-            album!!.setAlbumTitle(title)
+            album?.setAlbumTitle(title)
         }
 
     @Synchronized
     override fun activate() {
         requestFocus()
         isForeground = true
-        album!!.activate()
+        album?.activate()
     }
 
     @Synchronized
     override fun deactivate() {
         clearFocus()
         isForeground = false
-        album!!.deactivate()
+        album?.deactivate()
     }
 
     @Synchronized
     fun update(progress: Int) {
         if (isForeground) {
-            browserController!!.updateProgress(progress)
+            browserController?.updateProgress(progress)
         }
         if (isLoadFinish) {
             Handler().postDelayed({ setAlbumCover(ViewUnit.capture(this@NinjaWebView, dimen144dp.toFloat(), dimen108dp.toFloat(), Bitmap.Config.RGB_565)) }, 250)
             if (prepareRecord()) {
-                browserController!!.updateAutoComplete()
+                browserController?.updateAutoComplete()
             }
         }
     }
 
     @Synchronized
     fun update(title: String?) {
-        album!!.setAlbumTitle(title)
+        album?.setAlbumTitle(title)
     }
 
     @Synchronized
@@ -245,8 +269,8 @@ class NinjaWebView : WebView, AlbumController {
         get() = progress >= BrowserUnit.PROGRESS_MAX
 
     fun onLongPress() {
-        val click = clickHandler!!.obtainMessage()
-        click.target = clickHandler
+        val click = clickHandler?.obtainMessage()
+        click?.target = clickHandler
         requestFocusNodeHref(click)
     }
 

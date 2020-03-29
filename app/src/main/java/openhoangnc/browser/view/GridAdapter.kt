@@ -16,7 +16,7 @@ class GridAdapter(private val context: Context?, private val list: List<GridItem
         var cover: ImageView? = null
     }
 
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holder: Holder
         var view = convertView
         if (view == null) {
@@ -29,14 +29,13 @@ class GridAdapter(private val context: Context?, private val list: List<GridItem
             holder = view.tag as Holder
         }
         val item = list!![position]
-        holder.title!!.text == item.title
-        holder.cover!!.setImageBitmap(BrowserUnit.file2Bitmap(context, item.filename))
-        return view
+        holder.title?.text = item.title
+        holder.cover?.setImageBitmap(BrowserUnit.file2Bitmap(context, item.filename))
+        return view!!
     }
 
     override fun getCount(): Int { // TODO Auto-generated method stub
-        return list!!.size
-        //return 0;
+        return list?.size!!
     }
 
     override fun getItem(arg0: Int): Any { // TODO Auto-generated method stub

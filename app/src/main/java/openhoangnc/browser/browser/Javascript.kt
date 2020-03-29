@@ -57,9 +57,9 @@ class Javascript(private val context: Context?) {
 
         private fun loadHosts(context: Context?) {
             val thread = Thread(Runnable {
-                val manager = context!!.assets
+                val manager = context?.assets
                 try {
-                    val reader = BufferedReader(InputStreamReader(manager.open(FILE)))
+                    val reader = BufferedReader(InputStreamReader(manager?.open(FILE)!!))
                     var line: String
                     while (reader.readLine().also { line = it } != null) {
                         hostsJS.add(line.toLowerCase(locale))

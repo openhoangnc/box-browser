@@ -11,10 +11,15 @@ object IntentUnit {
         sharingIntent.type = "text/plain"
         sharingIntent.putExtra(Intent.EXTRA_SUBJECT, title)
         sharingIntent.putExtra(Intent.EXTRA_TEXT, url)
-        context!!.startActivity(Intent.createChooser(sharingIntent, context.getString(R.string.menu_share_link)))
+        context?.startActivity(
+            Intent.createChooser(
+                sharingIntent,
+                context.getString(R.string.menu_share_link)
+            )
+        )
     }
 
-    // activity holder
+    // TODO: check activity holder
     @SuppressLint("StaticFieldLeak")
     var context: Context? = null
 

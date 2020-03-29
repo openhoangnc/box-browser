@@ -25,9 +25,9 @@ class ImportWhitelistTask(activity: Activity?, i: Int) : AsyncTask<Void?, Void?,
         val dialogView = View.inflate(context, R.layout.dialog_progress, null)
         val textView = dialogView.findViewById<TextView>(R.id.dialog_text)
         textView.text = context.getString(R.string.toast_wait_a_minute)
-        dialog!!.setContentView(dialogView)
-        dialog!!.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        dialog!!.show()
+        dialog?.setContentView(dialogView)
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        dialog?.show()
         HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
     }
 
@@ -40,11 +40,11 @@ class ImportWhitelistTask(activity: Activity?, i: Int) : AsyncTask<Void?, Void?,
         return !isCancelled && count >= 0
     }
 
-    override fun onPostExecute(result: Boolean) {
-        dialog!!.hide()
-        dialog!!.dismiss()
-        if (result) {
-            NinjaToast.show(context, context!!.getString(R.string.toast_import_successful) + count)
+    override fun onPostExecute(result: Boolean?) {
+        dialog?.hide()
+        dialog?.dismiss()
+        if (result!!) {
+            NinjaToast.show(context, context?.getString(R.string.toast_import_successful) + count)
         } else {
             NinjaToast.show(context, R.string.toast_import_failed)
         }

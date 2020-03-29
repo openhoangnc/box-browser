@@ -34,8 +34,8 @@ class Adapter_Record(context: Context?, list: List<Record?>?) : ArrayAdapter<Rec
         }
         val record = list!![position]
         val sdf = SimpleDateFormat("MMM dd", Locale.getDefault())
-        holder.title!!.text = record!!.title
-        holder.time!!.text = sdf.format(record!!.time)
+        holder.title?.text = record?.title
+        holder.time?.text = sdf.format(record?.time)
         return view!!
     }
 

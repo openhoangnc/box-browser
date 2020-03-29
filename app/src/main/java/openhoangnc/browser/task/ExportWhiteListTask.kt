@@ -22,9 +22,9 @@ class ExportWhiteListTask(private val context: Context?, private val table: Int)
         val dialogView = View.inflate(context, R.layout.dialog_progress, null)
         val textView = dialogView.findViewById<TextView>(R.id.dialog_text)
         textView.text = context.getString(R.string.toast_wait_a_minute)
-        dialog!!.setContentView(dialogView)
-        dialog!!.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        dialog!!.show()
+        dialog?.setContentView(dialogView)
+        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        dialog?.show()
         HelperUnit.setBottomSheetBehavior(dialog!!, dialogView, BottomSheetBehavior.STATE_EXPANDED)
     }
 
@@ -34,14 +34,14 @@ class ExportWhiteListTask(private val context: Context?, private val table: Int)
             1 -> BrowserUnit.exportWhitelist(context, 1)
             else -> BrowserUnit.exportWhitelist(context, 2)
         }
-        return !isCancelled && path != null && !path!!.isEmpty()
+        return !isCancelled && path != null && !path?.isEmpty()!!
     }
 
-    override fun onPostExecute(result: Boolean) {
-        dialog!!.hide()
-        dialog!!.dismiss()
-        if (result) {
-            NinjaToast.show(context, context!!.getString(R.string.toast_export_successful) + path)
+    override fun onPostExecute(result: Boolean?) {
+        dialog?.hide()
+        dialog?.dismiss()
+        if (result!!) {
+            NinjaToast.show(context, context?.getString(R.string.toast_export_successful) + path)
         } else {
             NinjaToast.show(context, R.string.toast_export_failed)
         }
