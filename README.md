@@ -1,22 +1,9 @@
-## Important | Wichtig
-
-This is the default startsite of "BOX Browser". You can set every bookmark as startsite by longpressing. You can also set an empty
-startpage via the menu in your bookmarklist. PLEASE READ ALSO THE HELP DIALOG FOR FURTHER INSTRUCTIONS.
-
-Dies ist die Startseite von "BOX Browser". Jedes Lesezeichen kann durch langes drücken als Startseite gesetzt werden. Im Menü
-deiner Lesezeichenliste kannst du außerdem eine leere Startseite zu setzen. BITTE LIES AUCH DEN HILFE DIALOG FÜR WEITERE HINWEISE.
-
---------
-
 # BOX Browser
+A browser with no pop-ups and no redirects.
 
 "BOX Browser" is fully free/libre (as in freedom) Android app. The source code is public. The app also does not need any unnecessary
 permissions. It's a simple Android browser based on webview. The intention is to provide a simple and light weight but powerful
 browser with a nice looking user interface.
-
-<a href="https://f-droid.org/packages/openhoangnc.browser/" target="_blank">
-<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80"/></a>
-
 
 ### Links:
 - [Releases](https://github.com/scoute-dich/browser/releases)
