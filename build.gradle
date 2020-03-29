@@ -13,9 +13,11 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://maven.google.com' }
-        jcenter()
-        mavenCentral()
         google()
+        jcenter()
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
